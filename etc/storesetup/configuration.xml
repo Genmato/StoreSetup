@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<storesetup>
+    <!--
+    <configuration>
+        <config id="test" path="my/test/path" value="1" scope="stores" scope_id="1">
+            <environment name="uat" value="3"/>
+        </config>
+        <config id="test2" path="my/test2/path" value="1" />
+    </configuration>
+    -->
+</storesetup>

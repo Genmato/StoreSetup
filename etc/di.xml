@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="setup" xsi:type="object">Genmato\StoreSetup\Console\Command\SetupCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Genmato\StoreSetup\Model\SetupList">
+        <arguments>
+            <argument name="actions" xsi:type="array">
+                <item name="RootCategory" xsi:type="object">Genmato\StoreSetup\Model\Setup\RootCategory</item>
+                <item name="Website" xsi:type="object">Genmato\StoreSetup\Model\Setup\Website</item>
+                <item name="Theme" xsi:type="object">Genmato\StoreSetup\Model\Setup\Theme</item>
+                <item name="Category" xsi:type="object">Genmato\StoreSetup\Model\Setup\Category</item>
+                <item name="Configuration" xsi:type="object">Genmato\StoreSetup\Model\Setup\Configuration</item>
+                <item name="ProductAttribute" xsi:type="object">Genmato\StoreSetup\Model\Setup\ProductAttribute</item>
+                <item name="ProductAttributeSet" xsi:type="object">Genmato\StoreSetup\Model\Setup\ProductAttributeSet</item>
+                <item name="CategoryAttribute" xsi:type="object">Genmato\StoreSetup\Model\Setup\CategoryAttribute</item>
+                <item name="CustomerAttribute" xsi:type="object">Genmato\StoreSetup\Model\Setup\CustomerAttribute</item>
+                <item name="AddressAttribute" xsi:type="object">Genmato\StoreSetup\Model\Setup\AddressAttribute</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Genmato\StoreSetup\Model\Setup\Attribute\TypeList">
+        <arguments>
+            <argument name="type" xsi:type="array">
+                <item name="text" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\Text</item>
+                <item name="textarea" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\TextArea</item>
+                <item name="select" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\Select</item>
+                <item name="multiselect" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\MultiSelect</item>
+                <item name="textswatch" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\TextSwatch</item>
+                <item name="imageswatch" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\ImageSwatch</item>
+                <item name="colorswatch" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\ColorSwatch</item>
+                <item name="date" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\Date</item>
+                <item name="boolean" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\Boolean</item>
+                <item name="price" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\Price</item>
+                <item name="media_image" xsi:type="object">Genmato\StoreSetup\Model\Setup\Attribute\MediaImage</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Genmato\StoreSetup\Model\Setup\Configuration">
+        <arguments>
+            <argument name="envNames" xsi:type="array">
+                <item name="platform_branch" xsi:type="string">PLATFORM_BRANCH</item>
+                <item name="platform_environment" xsi:type="string">PLATFORM_ENVIRONMENT</item>
+                <item name="magecloud_branch" xsi:type="string">MAGENTO_CLOUD_BRANCH</item>
+                <item name="magecloud_environment" xsi:type="string">MAGENTO_CLOUD_ENVIRONMENT</item>
+                <item name="local_environment" xsi:type="string">LOCAL_ENVIRONMENT</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

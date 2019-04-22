@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<storesetup>
+    <!--
+    <attributeSets>
+        <attributeSet name="Dating" copyFrom="Default" sort_order="10">
+            <group id="dating_main" name="Main" sort_order="100" >
+                <attribute code="test_text" sort_order="800"/>
+                <attribute code="test_textarea" sort_order="800"/>
+                <attribute code="test_date" sort_order="800"/>
+                <attribute code="test_boolean" sort_order="800"/>
+                <attribute code="test_price" sort_order="800"/>
+                <attribute code="test_media_image" sort_order="800"/>
+                <attribute code="test_select" sort_order="800"/>
+                <attribute code="test_textswatch" sort_order="800"/>
+                <attribute code="test_imageswatch" sort_order="800"/>
+                <attribute code="test_colorswatch" sort_order="800"/>
+            </group>
+        </attributeSet>
+    </attributeSets>
+    -->
+</storesetup>

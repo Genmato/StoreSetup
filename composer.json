@@ -1,0 +1,20 @@
+{
+    "name": "genmato/storesetup",
+    "type": "magento2-module",
+    "description": "Magento2 Easy Store Setup and Configuration",
+    "keywords": [
+        "magento",
+        "magento2",
+        "store",
+        "setup",
+        "configuration"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Genmato\\StoreSetup\\": ""
+        }
+    }
+}

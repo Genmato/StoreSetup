@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<storesetup>
+    <!--
+    <category>
+        <attribute code="category_demo" type="text" label="Demo field category">
+            <label store="default">Demo field default</label>
+        </attribute>
+    </category>
+    <customer>
+        <attribute code="customer_demo" type="text" label="Demo field customer">
+            <label store="default">Demo field default</label>
+        </attribute>
+    </customer>
+    <address>
+        <attribute code="address_demo" type="text" label="Demo field address">
+            <label store="default">Demo field default</label>
+        </attribute>
+    </address>
+    <product>
+        <attribute code="product_demo" type="text" label="Demo field product">
+            <label store="default">Demo field default</label>
+        </attribute>
+
+        <attribute code="product_demo_textarea" type="textarea" label="Demo textarea field product"/>
+        <attribute code="product_demo_date" type="date" label="Demo date field product"/>
+        <attribute code="product_demo_bool" type="boolean" label="Demo boolean field product"/>
+        <attribute code="product_demo_price" type="price" label="Demo price field product"/>
+        <attribute code="product_demo_image" type="media_image" label="Demo image field product"/>
+
+        <attribute code="product_demo_select" type="select" label="Demo select field product">
+            <values>
+                <value key="T" label="Test 1 Base" order="1" >
+                    <label store="default">Test 1 default</label>
+                </value>
+                <value key="S" label="Test 2 Base" order="2" default="1">
+                    <label store="default">Test 2 default</label>
+                </value>
+            </values>
+        </attribute>
+
+        <attribute code="product_demo_multiselect" type="multiselect" label="Demo multiselect field product">
+            <values>
+                <value key="T" label="Test 1 Base" order="1" >
+                    <label store="default">Test 1 default</label>
+                </value>
+                <value key="S" label="Test 2 Base" order="2" default="1">
+                    <label store="default">Test 2 default</label>
+                </value>
+            </values>
+        </attribute>
+    </product> -->
+</storesetup>

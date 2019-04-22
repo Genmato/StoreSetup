@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<storesetup>
+    <!--
+    <category>
+        <rootcatalog id="demo-root" name="Demo root">
+            <catalog id="demo" url="demo" name="Demo" active="1" menu="1">
+                <catalog id="sub-demo1" url="sub1" name="Sub category 1" active="1" menu="1"/>
+                <catalog id="sub-demo2" url="sub2" name="Sub category 2" active="1" menu="1"/>
+            </catalog>
+        </rootcatalog>
+    </category>
+    -->
+</storesetup>

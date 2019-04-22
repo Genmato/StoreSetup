@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<storesetup>
+    <!--
+    <websites>
+        <website code="demo" name="Demo website" sort_order="1" default="1" previous="test">
+            <group name="Demo store" catalog="demo-root" code="demostore">
+                <store code="demo_en" name="EN" status="1" default="1" sort_order="1"/>
+                <store code="demo_us" name="US" status="1" default="0" sort_order="2"/>
+            </group>
+        </website>
+    </websites>
+    -->
+</storesetup>
