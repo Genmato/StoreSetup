@@ -91,7 +91,7 @@ class ImageSwatch extends AbstractType
                             // Copy imagefile to destination location
                             $source = $this->directoryWriter->create('/');
                             $source->copyFile($sourceImage, $destImage);
-                        } catch (Exception $ex) {
+                        } catch (\Exception $ex) {
                             // Error
                         }
                     }

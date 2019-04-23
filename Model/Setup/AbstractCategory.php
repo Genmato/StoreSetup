@@ -118,7 +118,7 @@ abstract class AbstractCategory extends AbstractAction
                 'id' => $category->getId(),
                 'checksum' => $checksum
             ];
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             $categoryData->setError($ex->getMessage());
             $this->log->logException(' - Error saving Root Category: %name$s (%error$s)', $categoryData);
         }

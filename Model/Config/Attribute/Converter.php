@@ -4,6 +4,7 @@ namespace Genmato\StoreSetup\Model\Config\Attribute;
 use Genmato\StoreSetup\Model\Config\AbstractConverter;
 use Genmato\StoreSetup\Model\Config\Attribute;
 use Genmato\StoreSetup\Model\Setup\Attribute\TypeList;
+use Genmato\StoreSetup\Model\Setup\Attribute\Type\Exception as TypeException;
 
 class Converter extends AbstractConverter
 {
@@ -26,14 +27,13 @@ class Converter extends AbstractConverter
     }
 
     /**
-    * Convert dom node tree to array
-    *
-    * @param \DOMDocument $source
-    * @return array
-    * @throws \InvalidArgumentException
-    *
-    * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-    */
+     * Convert dom node tree to array
+     *
+     * @param \DOMDocument $source
+     * @return array
+     * @throws TypeException
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     */
     public function convert($source)
     {
         $xpath = new \DOMXPath($source);
@@ -68,6 +68,7 @@ class Converter extends AbstractConverter
     /**
      * @param \DOMNode $node
      * @return mixed
+     * @throws TypeException
      */
     protected function buildAttribute(\DOMNode $node)
     {

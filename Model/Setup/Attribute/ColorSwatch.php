@@ -53,7 +53,7 @@ class ColorSwatch extends AbstractType
                 list($colR, $colG, $colB) = explode(',', $color);
                 return sprintf("#%02x%02x%02x", $colR, $colG, $colB);
             }
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             return "#ffffff";
         }
     }

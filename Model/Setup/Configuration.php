@@ -112,7 +112,7 @@ class Configuration extends AbstractAction
                     $scopeId
                 );
                 $this->log->logLine(sprintf(" - Saving configuration: %s with value: %s for scope: %s (%s)", $path, $value, $scope, $scopeId));
-            } catch (Exception $ex) {
+            } catch (\Exception $ex) {
                 $this->log->logError(sprintf("Error saving configuration:%s:%s", $config['path'], $ex->getMessage()));
             }
         }
