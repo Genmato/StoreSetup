@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <storesetup>
+    <!--
     <themes>
         <theme name="frontend/Magento/luma">
             <website id="demo"/>
@@ -8,4 +9,5 @@
             <store id="demo_us"/>
         </theme>
     </themes>
+    -->
 </storesetup>

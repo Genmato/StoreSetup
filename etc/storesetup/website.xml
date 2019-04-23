@@ -3,9 +3,19 @@
     <!--
     <websites>
         <website code="demo" name="Demo website" sort_order="1" default="1" previous="test">
+            <previous code="test"/>
+            <previous code="old"/>
             <group name="Demo store" catalog="demo-root" code="demostore">
-                <store code="demo_en" name="EN" status="1" default="1" sort_order="1"/>
-                <store code="demo_us" name="US" status="1" default="0" sort_order="2"/>
+                <previous code="teststore"/>
+                <previous code="oldstore"/>
+                <store code="demo_en" name="EN" status="1" default="1" sort_order="1">
+                    <previous code="test_en"/>
+                    <previous code="old_en"/>
+                </store>
+                <store code="demo_us" name="US" status="1" default="0" sort_order="2">
+                    <previous code="test_us"/>
+                    <previous code="old_us"/>
+                </store>
             </group>
         </website>
     </websites>

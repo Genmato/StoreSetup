@@ -10,6 +10,7 @@ class Reader extends Filesystem
 {
     protected $idAttributes = [
         '/storesetup/websites/website' => 'code',
+        '/storesetup/websites/website/previous' => 'code',
         '/storesetup/websites/website/group' => 'code',
         '/storesetup/websites/website/group/store' => 'code',
     ];

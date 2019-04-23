@@ -188,11 +188,18 @@ class Website extends AbstractAction
             $website = null;
         }
 
-        if ($website === null) {
+        if ($website === null && is_array($websiteData['previous'])) {
             try {
-                $prevousCode = $websiteData['previous'];
-                $website = $this->websiteRepository->get($prevousCode);
-                $this->log->logLine(' - Renaming website from: %previous$s to: %code$s!', $websiteData);
+                $previousCode = '';
+                foreach ($websiteData['previous'] as $previousCode) {
+                    try {
+                        $website = $this->websiteRepository->get($previousCode);
+                        break;
+                    } catch (NoSuchEntityException $e) {
+                        $website = null;
+                    }
+                }
+                $this->log->logLine(sprintf(" - Renaming website from: %s to %s !", $previousCode, $latestCode));
             } catch (NoSuchEntityException $e) {
                 $website = $this->websiteFactory->create();
                 $this->log->logLine(' - Creating new website: %code$s!', $websiteData);
@@ -221,9 +228,17 @@ class Website extends AbstractAction
         $this->groupResource->load($group, $latestCode, 'code');
 
         if (!$group->getId()) {
-            $previousCode = $groupData['previous'];
-            $this->groupResource->load($group, $previousCode, 'code');
-            $this->log->logLine('  - Renaming store group from: %previous$d to: %code$s', $groupData);
+            $previousCode = '';
+            foreach ($groupData['previous'] as $previousCode) {
+                try {
+                    $this->groupResource->load($group, $previousCode, 'code');
+                    if ($group->getId()) {
+                        break;
+                    }
+                } catch (NoSuchEntityException $e) {
+                }
+            }
+            $this->log->logLine(sprintf("  - Renaming store group from: %s to %s", $previousCode, $latestCode));
         } else {
             $this->log->logLine('  - Updating store group: %name$s', $groupData);
         }
@@ -269,9 +284,16 @@ class Website extends AbstractAction
 
         if ($store === null) {
             try {
-                $previousCode = $storeData['code'];
-                $store = $this->storeRepository->get($previousCode);
-                $this->log->logLine('   - Updating  store view from: %previous$s to: %code$s', $storeData);
+                $previousCode = '';
+                foreach ($storeData['previous'] as $previousCode) {
+                    try {
+                        $store = $this->storeRepository->get($previousCode);
+                        break;
+                    } catch (NoSuchEntityException $e) {
+                        $website = null;
+                    }
+                }
+                $this->log->logLine(sprintf(" - Renaming store view from: %s to %s !", $previousCode, $latestCode));
             } catch (NoSuchEntityException $e) {
                 $store = $this->storeFactory->create(['code' => $latestCode]);
                 $this->log->logLine('   - Creating new store view: %code$s', $storeData);

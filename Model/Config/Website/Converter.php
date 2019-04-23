@@ -41,12 +41,14 @@ class Converter extends AbstractConverter
         $output['name'] = $this->_getAttributeValue($node, 'name', '');
         $output['sort_order'] = $this->_getAttributeValue($node, 'sort_order', 1);
         $output['is_default'] = $this->_getAttributeValue($node, 'default', 0);
-        $output['previous'] = $this->_getAttributeValue($node, 'previous', '');
 
         if ($node->childNodes) {
             foreach ($node->childNodes as $childNode) {
                 if ($childNode->nodeType != XML_ELEMENT_NODE) {
                     continue;
+                }
+                if ($childNode->nodeName === 'previous') {
+                    $output['previous'][] = $this->_getAttributeValue($childNode, 'code', '');
                 }
                 if ($childNode->nodeName === 'group') {
                     $output['groups'][] = $this->buildGroups($childNode);
@@ -66,12 +68,14 @@ class Converter extends AbstractConverter
         $output['name'] = $this->_getAttributeValue($node, 'name', '');
         $output['code'] = $this->_getAttributeValue($node, 'code', '');
         $output['catalog'] = $this->_getAttributeValue($node, 'catalog', 'Default Category');
-        $output['previous'] = $this->_getAttributeValue($node, 'previous', '');
 
         if ($node->childNodes) {
             foreach ($node->childNodes as $childNode) {
                 if ($childNode->nodeType != XML_ELEMENT_NODE) {
                     continue;
+                }
+                if ($childNode->nodeName === 'previous') {
+                    $output['previous'][] = $this->_getAttributeValue($childNode, 'code', '');
                 }
                 if ($childNode->nodeName === 'store') {
                     $output['stores'][] = $this->buildStores($childNode);
@@ -94,6 +98,17 @@ class Converter extends AbstractConverter
         $output['is_default'] = $this->_getAttributeValue($node, 'default', 0);
         $output['sort_order'] = $this->_getAttributeValue($node, 'sort_order', 1);
         $output['is_active'] = $this->_getAttributeValue($node, 'active', 1);
+
+        if ($node->childNodes) {
+            foreach ($node->childNodes as $childNode) {
+                if ($childNode->nodeType != XML_ELEMENT_NODE) {
+                    continue;
+                }
+                if ($childNode->nodeName === 'previous') {
+                    $output['previous'][] = $this->_getAttributeValue($childNode, 'code', '');
+                }
+            }
+        }
 
         return $output;
     }
