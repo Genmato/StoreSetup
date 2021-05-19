@@ -188,7 +188,7 @@ class Website extends AbstractAction
             $website = null;
         }
 
-        if ($website === null && is_array($websiteData['previous'])) {
+        if ($website === null && isset($websiteData['previous']) && is_array($websiteData['previous'])) {
             try {
                 $previousCode = '';
                 foreach ($websiteData['previous'] as $previousCode) {
@@ -233,7 +233,7 @@ class Website extends AbstractAction
         $group = $this->groupFactory->create();
         $this->groupResource->load($group, $latestCode, 'code');
 
-        if (!$group->getId()) {
+        if (!$group->getId() && isset($groupData['previous']) && is_array($groupData['previous'])) {
             $previousCode = '';
             foreach ($groupData['previous'] as $previousCode) {
                 try {
@@ -288,7 +288,7 @@ class Website extends AbstractAction
             $store = null;
         }
 
-        if ($store === null) {
+        if ($store === null && isset($storeData['previous']) && is_array($storeData['previous'])) {
             try {
                 $previousCode = '';
                 foreach ($storeData['previous'] as $previousCode) {
