@@ -194,16 +194,22 @@ class Website extends AbstractAction
                 foreach ($websiteData['previous'] as $previousCode) {
                     try {
                         $website = $this->websiteRepository->get($previousCode);
-                        break;
+                        if ($website->getId()) {
+                            $this->log->logLine(sprintf(" - Renaming website from: %s to %s !", $previousCode, $latestCode));
+                            break;
+                        }
                     } catch (NoSuchEntityException $e) {
                         $website = null;
                     }
                 }
-                $this->log->logLine(sprintf(" - Renaming website from: %s to %s !", $previousCode, $latestCode));
             } catch (NoSuchEntityException $e) {
-                $website = $this->websiteFactory->create();
-                $this->log->logLine(' - Creating new website: %code$s!', $websiteData);
+                $website = null;
             }
+        }
+
+        if ($website === null) {
+            $website = $this->websiteFactory->create();
+            $this->log->logLine(' - Creating new website: %code$s!', $websiteData);
         }
 
         $website->setName($websiteData['name'])
@@ -288,18 +294,23 @@ class Website extends AbstractAction
                 foreach ($storeData['previous'] as $previousCode) {
                     try {
                         $store = $this->storeRepository->get($previousCode);
-                        break;
+                        if ($store->getId()) {
+                            $this->log->logLine(sprintf(" - Renaming store view from: %s to %s !", $previousCode, $latestCode));
+                            break;
+                        }
                     } catch (NoSuchEntityException $e) {
-                        $website = null;
+                        $store = null;
                     }
                 }
-                $this->log->logLine(sprintf(" - Renaming store view from: %s to %s !", $previousCode, $latestCode));
             } catch (NoSuchEntityException $e) {
-                $store = $this->storeFactory->create(['code' => $latestCode]);
-                $this->log->logLine('   - Creating new store view: %code$s', $storeData);
+                $store = null;
             }
         }
-
+        if ($store === null) {
+            $store = $this->storeFactory->create(['code' => $latestCode]);
+            $this->log->logLine('   - Creating new store view: %code$s', $storeData);
+        }
+        
         $store->setName($storeData['name'])
             ->setStoreGroupId($parentGroup->getId())
             ->setWebsiteId($parentWebsite->getId())
